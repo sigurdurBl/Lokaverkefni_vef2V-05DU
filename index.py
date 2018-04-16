@@ -5,18 +5,30 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("hmoe.html")
+    return render_template("home.html")
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    with open("text.json", "r") as skra:
+        data = json.load(skra)
+        title = data["texts"]["text"]["title"]
+        text = data["texts"]["text"]["About"]
+    return render_template("about.html",title =title,text = text)
 
 @app.route("/games")
 def games():
-    return render_template("game.html")
+    with open("text.json", "r") as skra1:
+        data1 = json.load(skra1)
+        title1 = data1["texts"]["text"]["title3"]
+        text1 = data1["texst"]["text"]["Video-games"]
+    return render_template("game.html",title1 = title1, text1 = text1)
 
 @app.route("/series")
 def series():
-    return render_template("series.html")
+    with open("text.json","r") as skra2:
+        data2 = json.load(skra2)
+        title2 = data2["texts"]["text"]["title2"]
+        text2 = data2["texts"]["text"]["Anime-series"]
+    return render_template("series.html",title2 = title2, text2 = text2)
 
-app.run()
+app.run(host = "localhost" )
