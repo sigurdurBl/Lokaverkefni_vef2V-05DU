@@ -7,7 +7,11 @@ from  flask import render_template
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    with open("text.json","r")as skra4:
+        data4 =json.load(skra4)
+        title4 = data4["texts"]["text"]["title4"]
+        text4 = data4["texts"]["text"]["About-vebside"]
+    return render_template("home.html",title4 = title4,text4 = text4)
 
 @app.route("/about")
 def about():
