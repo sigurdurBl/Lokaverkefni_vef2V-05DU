@@ -11,7 +11,7 @@ def home():
         data4 =json.load(skra4)
         title4 = data4["texts"]["text"]["title4"]
         text4 = data4["texts"]["text"]["About-vebside"]
-    return render_template("home.html",title4 = title4,text4 = text4)
+    return render_template("index.html",title4 = title4,text4 = text4)
 
 @app.route("/about")
 def about():
@@ -21,12 +21,12 @@ def about():
         text = data["texts"]["text"]["About"]
     return render_template("about.html",title =title,text = text)
 
-@app.route("/games")
+@app.route("/game")
 def games():
     with open("text.json", "r") as skra1:
         data1 = json.load(skra1)
         title1 = data1["texts"]["text"]["title3"]
-        text1 = data1["texst"]["text"]["Video-games"]
+        text1 = data1["texts"]["text"]["Video-games"]
     return render_template("game.html",title1 = title1, text1 = text1)
 
 @app.route("/series")
