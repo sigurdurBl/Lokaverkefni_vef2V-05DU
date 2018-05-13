@@ -19,7 +19,9 @@ def about():
         data = json.load(skra)
         title = data["texts"]["text"]["title"]
         text = data["texts"]["text"]["About"]
-    return render_template("about.html",title =title,text = text)
+        title6 = data["texts"]["text"]["title6"]
+        text6 = data["texts"]["text"]["Megaevolution"]
+    return render_template("about.html",title =title,text = text, title6 = title6,text6 = text6)
 
 @app.route("/game")
 def games():
@@ -27,7 +29,11 @@ def games():
         data1 = json.load(skra1)
         title1 = data1["texts"]["text"]["title3"]
         text1 = data1["texts"]["text"]["Video-games"]
-    return render_template("game.html",title1 = title1, text1 = text1)
+        title5 = data1["texts"]["text"]["title5"]
+        text5 = data1["texts"]["text"]["ThirdGen"]
+        title7 = data1["texts"]["text"]["title7"]
+        text7 = data1["texts"]["text"]["SixthGen"]
+    return render_template("game.html",title1 = title1, text1 = text1,title5 = title5,text5 = text5, title7 = title7,text7 = text7)
 
 @app.route("/series")
 def series():
